@@ -6,7 +6,7 @@ class Bike
 		# all instance variables begin with "@"
 		# this must be an instance variable because we'll need it
 		# in other methods
-		@broken = false
+		fix!
 	end
 
 	def broken?
@@ -23,3 +23,4 @@ class Bike
 		@broken = false
 	end
 end
+
