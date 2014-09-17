@@ -25,7 +25,7 @@ DEFAULT_CAPACITY = 10
 	end
 
 	def release(bike)
-		@bikes.delete(bike)
+		bikes.delete(bike)
 	end
 
 	def full?

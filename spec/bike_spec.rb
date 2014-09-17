@@ -5,7 +5,7 @@ require 'bike'
 describe Bike do
 #this is a specific feature (behaviour)
 
-let(:bike) { Bike.new}
+let(:bike) { Bike.new }
 #that we expect to be present
 it "should not be broken after we create it" do
 	expect(bike).not_to be_broken

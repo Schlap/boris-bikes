@@ -6,8 +6,8 @@ class Bike
 		# all instance variables begin with "@"
 		# this must be an instance variable because we'll need it
 		# in other methods
-		fix!
 	end
+
 
 	def broken?
 		# instance variables are accesible in all methods
