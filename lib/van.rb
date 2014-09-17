@@ -7,4 +7,3 @@ class Van
 	def collect(bike)
 		dock(bike)
 	end
-end
