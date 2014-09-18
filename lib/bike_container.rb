@@ -44,4 +44,9 @@ DEFAULT_CAPACITY = 10
 	def unavailable_bikes
 		@bikes.select {|bike| bike.broken?}
 	end	
+
+	def empty?()
+		bike_count == 0
+
+	end
 end

@@ -38,7 +38,7 @@ describe BikeContainer do
 		expect(lambda { holder.dock(bike) } ).to raise_error(RuntimeError)
 	end
 
-	it "should provide list of available bikes" do
+	it "should provide a list of available bikes" do
 		working_bike, broken_bike = Bike.new, Bike.new
 		broken_bike.break!
 		holder.dock(working_bike)
