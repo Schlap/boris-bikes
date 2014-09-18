@@ -7,9 +7,10 @@ describe Van do
 	let(:bike) {Bike.new}
 	let(:van) {Van.new}
 
-	it "should accept broken bikes" do
-		van.accept(bike)
-		expect(bike).to be_broken
+	it "should dock broken bikes" do
+		bike = Bike.new.break!
+		van.dock(bike)
+		expect{van.dock(bike)}.to change{van.bike_count}.by +1
 	end
 
 	it "should release fixed bikes" do

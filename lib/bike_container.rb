@@ -25,7 +25,12 @@ DEFAULT_CAPACITY = 10
 	end
 
 	def release(bike)
+		raise "This is not a real Bike!" if bike.class != Bike
 		bikes.delete(bike)
+	end
+
+	def not_bike
+		bike = !Bike.new
 	end
 
 	def full?
