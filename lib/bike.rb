@@ -3,6 +3,7 @@ class Bike
 	#the initialize method is always called when you create a new
 	#class by typing Bike.new
 	def initialize
+		@broken = false
 		# all instance variables begin with "@"
 		# this must be an instance variable because we'll need it
 		# in other methods

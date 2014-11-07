@@ -5,7 +5,7 @@ require 'docking_station'
 describe Van do
 
 	let(:bike) {Bike.new}
-	let(:van) {Van.new}
+	let(:van) {Van.new(:capacity => 25)}
 	let(:station) {DockingStation.new}
 
 	#it "should dock broken bikes" do
@@ -25,5 +25,16 @@ describe Van do
 		van.recieve_broken_bikes(station)
 		expect(station.bike_count).to eq(0)
 		expect(van.bike_count).to eq(1)
+	end
+
+	it "should only transfer broken bikes from the docking station" do
+		broken_bike = Bike.new
+		broken_bike.break!
+		10.times {station.dock(broken_bike)}
+		5.times {station.dock(bike)}
+		expect(station.bike_count).to eq(15)
+		van.transfer(station)
+		expect(station.bike_count).to eq(5)
+		expect(van.bike_count).to eq(10)
 	end
 end

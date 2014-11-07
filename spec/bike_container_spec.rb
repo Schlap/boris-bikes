@@ -9,27 +9,23 @@ describe BikeContainer do
 		holder.capacity.times {holder.dock(Bike.new)}
 	end
 
-	let(:bike) {Bike.new}
+	#Exclamation mark after let is called bang
+	#and ensures that you are using the same instance
+	let(:bike) {double :bike, broken?: false, :class => Bike}
 	let(:holder) {ContainerHolder.new}
 
 	it "should accept a bike" do
-		#we expect the holder to have 0 bikes
-		expect(holder.bike_count).to eq(0)
-		#let's dock a bike into the holder
-		holder.dock(bike)
-		# now we expect the holder to have 1 bike
-		expect(holder.bike_count).to eq(1)
+		expect{holder.dock(:bike)}.to change{holder.bike_count}.by 1
 	end
 
 	it "should release a bike" do
 		holder.dock(bike)
-		holder.release(bike)
-		expect(holder.bike_count).to eq(0)
+		expect{holder.release(bike)}.to change {holder.bike_count}.by -1
 	end
 
 	it "should know when it's full" do
 		expect(holder).not_to be_full
-		holder.capacity.times { holder.dock(Bike.new) }
+		holder.capacity.times { holder.dock(bike) }
 		expect(holder).to be_full
 	end
 
